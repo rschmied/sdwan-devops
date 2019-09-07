@@ -14,7 +14,7 @@ vmanage_ping_tests:
     vpn: 1
     pass: yes
 #
-# Branch to Cirtical External Services
+# Branch to Critical External Services
 #
   - dst_ip: 10.100.1.10
     vedge: site1-vedge1

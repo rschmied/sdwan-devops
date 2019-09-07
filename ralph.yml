@@ -4,10 +4,9 @@
   roles:
     - ansible-pyats
   tasks:
-    - pyats_parse_command:
+    - include_role:
+        name: ansible-pyats
+        tasks_from: snapshot_command
+      vars:
         command: show ip route bgp
-      register: output
-
-    - debug:
-        var: output.structured
-
+        file: "{{ inventory_hostname }}_bgp.json"

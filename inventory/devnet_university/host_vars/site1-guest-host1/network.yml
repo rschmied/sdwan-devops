@@ -1,5 +1,5 @@
 interfaces:
-  eth1:
+  eth0:
     enabled: true
     ip:
       primary: 10.22.3.10/24

@@ -1,6 +1,6 @@
 virl:
-  subtype: lxc-iperf
+  subtype: lxc
   interfaces:
     - network: site1-lan
-      name: eth1
+      name: eth0
   config_template: virl/lxc.j2
