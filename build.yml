@@ -13,7 +13,7 @@
       password: "{{ virl_password }}"
       lab: "{{ virl_lab }}"
       state: present
-      file: stevenca_workshop2v.yaml
+      file: devnet_university.yaml
 
 
 - name: Start unmanaged nodes

@@ -9,16 +9,16 @@
   - set_fact:
       snapshot_data: "{{ lookup('file', snapshot_file) | from_json }}"
 
-#  - debug:
-#      var: snapshot_data
+  - debug:
+      var: snapshot_data
 #
   - pyats_parse_command:
       command: show ip route bgp
       compare: "{{ snapshot_data }}"
     register: command_output
 
-#  - debug:
-#      msg: "{{ command_output }}"
+  - debug:
+      msg: "{{ command_output }}"
 
   - debug:
       var: command_output
