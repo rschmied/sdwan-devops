@@ -1,5 +1,11 @@
 FROM alpine:3.10
 
+# if PyATS should be included:
+# docker build -t ansible-viptela --build-arg pyats=1 .
+# images size goes up from ~400 to ~800 MB!
+
+ARG pyats
+
 RUN echo "===> install GCC... " && \
     apk add --no-cache gcc musl-dev make && \
     \
@@ -16,7 +22,7 @@ RUN echo "===> install GCC... " && \
     if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi && \
     \
     \
-    echo "===> Installing dependancies..."  && \
+    echo "===> Installing dependencies..."  && \
     apk --update add sshpass libffi-dev libxml2-dev libxslt-dev python3-dev openssl-dev openssh-keygen
 
 COPY requirements.txt /tmp/requirements.txt
@@ -26,8 +32,10 @@ RUN echo "===> Installing PIP Requirements..."  && \
 # https://github.com/pypa/pip/issues/3969#issuecomment-247381915
 COPY _manylinux.py /usr/lib/python3.7/site-packages/_manylinux.py
 
-RUN echo "===> Installing PyATS / Genie requirement..."  && \
-    pip install pyats[full]==19.8
+RUN if ! [ "x$pyats" = "x" ]; then \
+        echo "===> Installing PyATS / Genie requirement..."  && \
+        pip install pyats[full]==19.8 ; \
+    fi 
 
 COPY files/simple_client-0.1.9b15-py3-none-any.whl /tmp/simple_client-0.1.9b15-py3-none-any.whl
 RUN echo "===> Installing VIRL Client..."  && \

@@ -8,5 +8,5 @@
         name: ansible-pyats
         tasks_from: snapshot_command
       vars:
-        command: show ip route bgp
-        file: "{{ inventory_hostname }}_bgp.json"
+        command: show ip route
+        file: "{{ inventory_hostname }}_routes.json"
