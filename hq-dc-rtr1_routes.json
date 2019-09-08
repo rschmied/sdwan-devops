@@ -1,0 +1,126 @@
+{
+    "vrf": {
+        "default": {
+            "address_family": {
+                "ipv4": {
+                    "routes": {
+                        "10.0.1.0/24": {
+                            "active": true,
+                            "next_hop": {
+                                "outgoing_interface": {
+                                    "GigabitEthernet3": {
+                                        "outgoing_interface": "GigabitEthernet3"
+                                    }
+                                }
+                            },
+                            "route": "10.0.1.0/24",
+                            "source_protocol": "connected",
+                            "source_protocol_codes": "C"
+                        },
+                        "10.0.1.1/32": {
+                            "active": true,
+                            "next_hop": {
+                                "outgoing_interface": {
+                                    "GigabitEthernet3": {
+                                        "outgoing_interface": "GigabitEthernet3"
+                                    }
+                                }
+                            },
+                            "route": "10.0.1.1/32",
+                            "source_protocol": "local",
+                            "source_protocol_codes": "L"
+                        },
+                        "10.0.255.0/30": {
+                            "active": true,
+                            "next_hop": {
+                                "outgoing_interface": {
+                                    "GigabitEthernet2": {
+                                        "outgoing_interface": "GigabitEthernet2"
+                                    }
+                                }
+                            },
+                            "route": "10.0.255.0/30",
+                            "source_protocol": "connected",
+                            "source_protocol_codes": "C"
+                        },
+                        "10.0.255.2/32": {
+                            "active": true,
+                            "next_hop": {
+                                "outgoing_interface": {
+                                    "GigabitEthernet2": {
+                                        "outgoing_interface": "GigabitEthernet2"
+                                    }
+                                }
+                            },
+                            "route": "10.0.255.2/32",
+                            "source_protocol": "local",
+                            "source_protocol_codes": "L"
+                        },
+                        "10.0.255.4/30": {
+                            "active": true,
+                            "next_hop": {
+                                "outgoing_interface": {
+                                    "GigabitEthernet4": {
+                                        "outgoing_interface": "GigabitEthernet4"
+                                    }
+                                }
+                            },
+                            "route": "10.0.255.4/30",
+                            "source_protocol": "connected",
+                            "source_protocol_codes": "C"
+                        },
+                        "10.0.255.5/32": {
+                            "active": true,
+                            "next_hop": {
+                                "outgoing_interface": {
+                                    "GigabitEthernet4": {
+                                        "outgoing_interface": "GigabitEthernet4"
+                                    }
+                                }
+                            },
+                            "route": "10.0.255.5/32",
+                            "source_protocol": "local",
+                            "source_protocol_codes": "L"
+                        },
+                        "192.168.1.0/24": {
+                            "active": true,
+                            "metric": 16777214,
+                            "next_hop": {
+                                "next_hop_list": {
+                                    "1": {
+                                        "index": 1,
+                                        "next_hop": "10.0.255.6",
+                                        "outgoing_interface": "GigabitEthernet4",
+                                        "updated": "00:01:43"
+                                    }
+                                }
+                            },
+                            "route": "192.168.1.0/24",
+                            "route_preference": 252,
+                            "source_protocol": "ospf",
+                            "source_protocol_codes": "O E2"
+                        },
+                        "192.168.2.0/24": {
+                            "active": true,
+                            "metric": 16777214,
+                            "next_hop": {
+                                "next_hop_list": {
+                                    "1": {
+                                        "index": 1,
+                                        "next_hop": "10.0.255.6",
+                                        "outgoing_interface": "GigabitEthernet4",
+                                        "updated": "00:01:43"
+                                    }
+                                }
+                            },
+                            "route": "192.168.2.0/24",
+                            "route_preference": 252,
+                            "source_protocol": "ospf",
+                            "source_protocol_codes": "O E2"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

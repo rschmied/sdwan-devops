@@ -19,15 +19,23 @@
 
     - add_host:
         name: "{{ item }}"
-        groups: virl_nodes
+        groups: virl_hosts
       when: hostvars[item].virl is defined
       loop: "{{ include_hosts | difference(exclude_hosts) }}"
 
 - name: Generating day0 config
-  hosts: virl_nodes
-  gather_facts: no
+  hosts: virl_hosts
+  connection: local
   tags:
     - config
   tasks:
+    - name: print the configuration templates
+      command:
+        argv:
+          - printf
+          - "{{ lookup('template', virl.config_template) }}"
+      register: print_result
     - debug:
-        msg: "{{ lookup('template', virl.config_template) }}"
+        # msg: "{{ lookup('template', virl.config_template) }}"
+        msg: "{{ print_result.stdout_lines }}"
+
